@@ -1,7 +1,7 @@
 packages:
+  - api
   - app
   - ui-kit
-  - packages/*
 
 catalog:
   '@sveltejs/kit': ^2.55.0
