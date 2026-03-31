@@ -1,0 +1,36 @@
+/**
+ * JadeBi 主题系统入口
+ * 无头组件库的样式基础
+ *
+ * 使用方式：
+ * - 引入全部主题：@import '@jade-bi/ui-kit-ui-kit';
+ * - 引入单个模块：@import '@jade-bi/ui-kit-ui-kit/vars.css';
+ * - 在 CSS 中使用变量：var(--jb-primary)
+ */
+
+/* 核心设计令牌 - 必须在其他模块之前引入 */
+@import './vars.css';
+
+/* 颜色系统 - 语义化颜色变量 */
+@import './colors.css';
+
+/* 排版系统 - 字体和文本样式 */
+@import './typography.css';
+
+/* 间距系统 */
+@import './spacing.css';
+
+/* 圆角系统 */
+@import './radius.css';
+
+/* 阴影系统 */
+@import './shadows.css';
+
+/* 基础元素重置 */
+@import './reset.css';
+
+/* 交互状态样式 */
+@import './states.css';
+
+/* 工具类（可选） */
+/* @import './utilities.css'; */

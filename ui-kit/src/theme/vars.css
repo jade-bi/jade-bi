@@ -1,0 +1,55 @@
+/**
+ * 核心设计令牌 - 无头组件库基础
+ * 只提供 CSS 变量，不预设类名
+ */
+
+/* 黄金比例缩放因子 */
+:root {
+  /* 缩放因子 - 基于黄金比例 φ = 1.618 */
+  --jb-scalefactor: 1.618;
+  --jb-wholestep: 1.618;
+  --jb-halfstep: 1.272;
+  --jb-quarterstep: 1.128;
+  --jb-eighthstep: 1.062;
+
+  /* 基准尺寸 */
+  --jb-size-base: 1em;
+
+  /* 尺寸变量 - 从 3xs 到 4xl */
+  --jb-size-3xs: calc(var(--jb-size-2xs) / var(--jb-scalefactor));
+  --jb-size-2xs: calc(var(--jb-size-xs) / var(--jb-scalefactor));
+  --jb-size-xs: calc(var(--jb-size-sm) / var(--jb-scalefactor));
+  --jb-size-sm: calc(var(--jb-size-md) / var(--jb-scalefactor));
+  --jb-size-md: var(--jb-size-base);
+  --jb-size-lg: calc(var(--jb-size-md) * var(--jb-scalefactor));
+  --jb-size-xl: calc(var(--jb-size-lg) * var(--jb-scalefactor));
+  --jb-size-2xl: calc(var(--jb-size-xl) * var(--jb-scalefactor));
+  --jb-size-3xl: calc(var(--jb-size-2xl) * var(--jb-scalefactor));
+  --jb-size-4xl: calc(var(--jb-size-3xl) * var(--jb-scalefactor));
+
+  /* 常用尺寸别名 */
+  --jb-space-1: var(--jb-size-xs);
+  --jb-space-2: var(--jb-size-sm);
+  --jb-space-3: var(--jb-size-md);
+  --jb-space-4: var(--jb-size-lg);
+  --jb-space-5: var(--jb-size-xl);
+  --jb-space-6: var(--jb-size-2xl);
+  --jb-space-8: var(--jb-size-3xl);
+  --jb-space-10: var(--jb-size-4xl);
+
+  /* 容器最大宽度 */
+  --jb-container-sm: 640px;
+  --jb-container-md: 768px;
+  --jb-container-lg: 1024px;
+  --jb-container-xl: 1280px;
+  --jb-container-2xl: 1536px;
+
+  /* 层级 z-index */
+  --jb-z-dropdown: 1000;
+  --jb-z-sticky: 1020;
+  --jb-z-fixed: 1030;
+  --jb-z-modal-backdrop: 1040;
+  --jb-z-modal: 1050;
+  --jb-z-popover: 1060;
+  --jb-z-tooltip: 1070;
+}

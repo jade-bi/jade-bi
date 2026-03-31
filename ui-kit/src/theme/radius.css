@@ -1,0 +1,34 @@
+/**
+ * 圆角系统
+ * 只提供圆角变量，不预设类名
+ */
+
+:root {
+  /* ===== 基础圆角 - Islands 更大圆角 ===== */
+  --jb-radius-none: 0;
+  --jb-radius-sm: 4px;
+  --jb-radius-base: 6px;
+  --jb-radius-md: 8px;
+  --jb-radius-lg: 12px;
+  --jb-radius-xl: 16px;
+  --jb-radius-2xl: 20px;
+  --jb-radius-3xl: 28px;
+  --jb-radius-full: 9999px;
+
+  /* ===== 语义化圆角 - Islands 风格 ===== */
+  --jb-radius-button: 8px;
+  --jb-radius-input: 8px;
+  --jb-radius-card: 12px;
+  --jb-radius-modal: 16px;
+  --jb-radius-popover: 12px;
+  --jb-radius-tooltip: 8px;
+  --jb-radius-tag: var(--jb-radius-full);
+  --jb-radius-avatar: var(--jb-radius-full);
+
+  /* ===== 组件圆角组合 ===== */
+  --jb-radius-sm-component: var(--jb-radius-sm) var(--jb-radius-sm) var(--jb-radius-sm) var(--jb-radius-sm);
+  --jb-radius-md-component: var(--jb-radius-md) var(--jb-radius-md) var(--jb-radius-md) var(--jb-radius-md);
+  --jb-radius-lg-component: var(--jb-radius-lg) var(--jb-radius-lg) var(--jb-radius-lg) var(--jb-radius-lg);
+  --jb-radius-pill: var(--jb-radius-full) var(--jb-radius-full) var(--jb-radius-full) var(--jb-radius-full);
+  --jb-radius-circle: var(--jb-radius-full);
+}

@@ -1,0 +1,248 @@
+/**
+ * 工具类
+ * 可选：常用工具类，供需要快速样式的消费者使用
+ * 与有头组件库不同，这些是低-level 工具类
+ */
+
+/* ===== 显示 ===== */
+.jb-display-none { display: none; }
+.jb-display-block { display: block; }
+.jb-display-inline { display: inline; }
+.jb-display-inline-block { display: inline-block; }
+.jb-display-flex { display: flex; }
+.jb-display-inline-flex { display: inline-flex; }
+.jb-display-grid { display: grid; }
+.jb-display-inline-grid { display: inline-grid; }
+
+/* ===== 弹性盒子 - 方向 ===== */
+.jb-flex-row { flex-direction: row; }
+.jb-flex-row-reverse { flex-direction: row-reverse; }
+.jb-flex-col { flex-direction: column; }
+.jb-flex-col-reverse { flex-direction: column-reverse; }
+
+/* ===== 弹性盒子 - 换行 ===== */
+.jb-flex-nowrap { flex-wrap: nowrap; }
+.jb-flex-wrap { flex-wrap: wrap; }
+.jb-flex-wrap-reverse { flex-wrap: wrap-reverse; }
+
+/* ===== 弹性盒子 - 主轴对齐 ===== */
+.jb-justify-start { justify-content: flex-start; }
+.jb-justify-end { justify-content: flex-end; }
+.jb-justify-center { justify-content: center; }
+.jb-justify-between { justify-content: space-between; }
+.jb-justify-around { justify-content: space-around; }
+.jb-justify-evenly { justify-content: space-evenly; }
+
+/* ===== 弹性盒子 - 交叉轴对齐 ===== */
+.jb-items-start { align-items: flex-start; }
+.jb-items-end { align-items: flex-end; }
+.jb-items-center { align-items: center; }
+.jb-items-stretch { align-items: stretch; }
+.jb-items-baseline { align-items: baseline; }
+
+/* ===== 弹性盒子 - 间隙 ===== */
+.jb-gap-1 { gap: var(--jb-spacing-1); }
+.jb-gap-2 { gap: var(--jb-spacing-2); }
+.jb-gap-3 { gap: var(--jb-spacing-3); }
+.jb-gap-4 { gap: var(--jb-spacing-4); }
+.jb-gap-5 { gap: var(--jb-spacing-5); }
+.jb-gap-6 { gap: var(--jb-spacing-6); }
+.jb-gap-8 { gap: var(--jb-spacing-8); }
+.jb-gap-10 { gap: var(--jb-spacing-10); }
+
+/* ===== 网格 - 列 ===== */
+.jb-grid-cols-1 { grid-template-columns: repeat(1, minmax(0, 1fr)); }
+.jb-grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.jb-grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.jb-grid-cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+
+/* ===== 网格 - 间隙 ===== */
+.jb-grid-gap-1 { grid-gap: var(--jb-spacing-1); }
+.jb-grid-gap-2 { grid-gap: var(--jb-spacing-2); }
+.jb-grid-gap-3 { grid-gap: var(--jb-spacing-3); }
+.jb-grid-gap-4 { grid-gap: var(--jb-spacing-4); }
+
+/* ===== 内边距 ===== */
+.jb-p-0 { padding: var(--jb-spacing-0); }
+.jb-p-1 { padding: var(--jb-spacing-1); }
+.jb-p-2 { padding: var(--jb-spacing-2); }
+.jb-p-3 { padding: var(--jb-spacing-3); }
+.jb-p-4 { padding: var(--jb-spacing-4); }
+.jb-p-5 { padding: var(--jb-spacing-5); }
+.jb-p-6 { padding: var(--jb-spacing-6); }
+.jb-p-8 { padding: var(--jb-spacing-8); }
+
+.jb-px-1 { padding-left: var(--jb-spacing-1); padding-right: var(--jb-spacing-1); }
+.jb-px-2 { padding-left: var(--jb-spacing-2); padding-right: var(--jb-spacing-2); }
+.jb-px-3 { padding-left: var(--jb-spacing-3); padding-right: var(--jb-spacing-3); }
+.jb-px-4 { padding-left: var(--jb-spacing-4); padding-right: var(--jb-spacing-4); }
+
+.jb-py-1 { padding-top: var(--jb-spacing-1); padding-bottom: var(--jb-spacing-1); }
+.jb-py-2 { padding-top: var(--jb-spacing-2); padding-bottom: var(--jb-spacing-2); }
+.jb-py-3 { padding-top: var(--jb-spacing-3); padding-bottom: var(--jb-spacing-3); }
+.jb-py-4 { padding-top: var(--jb-spacing-4); padding-bottom: var(--jb-spacing-4); }
+
+/* ===== 外边距 ===== */
+.jb-m-0 { margin: var(--jb-spacing-0); }
+.jb-m-1 { margin: var(--jb-spacing-1); }
+.jb-m-2 { margin: var(--jb-spacing-2); }
+.jb-m-3 { margin: var(--jb-spacing-3); }
+.jb-m-4 { margin: var(--jb-spacing-4); }
+.jb-m-auto { margin: auto; }
+
+.jb-mx-auto { margin-left: auto; margin-right: auto; }
+.jb-my-auto { margin-top: auto; margin-bottom: auto; }
+
+.jb-mt-1 { margin-top: var(--jb-spacing-1); }
+.jb-mt-2 { margin-top: var(--jb-spacing-2); }
+.jb-mt-3 { margin-top: var(--jb-spacing-3); }
+.jb-mt-4 { margin-top: var(--jb-spacing-4); }
+
+.jb-mb-1 { margin-bottom: var(--jb-spacing-1); }
+.jb-mb-2 { margin-bottom: var(--jb-spacing-2); }
+.jb-mb-3 { margin-bottom: var(--jb-spacing-3); }
+.jb-mb-4 { margin-bottom: var(--jb-spacing-4); }
+
+/* ===== 宽度/高度 ===== */
+.jb-w-full { width: 100%; }
+.jb-h-full { height: 100%; }
+.jb-min-w-0 { min-width: 0; }
+.jb-min-h-0 { min-height: 0; }
+
+/* ===== 尺寸 ===== */
+.jb-size-sm { width: var(--jb-size-sm); height: var(--jb-size-sm); }
+.jb-size-md { width: var(--jb-size-md); height: var(--jb-size-md); }
+.jb-size-lg { width: var(--jb-size-lg); height: var(--jb-size-lg); }
+.jb-size-xl { width: var(--jb-size-xl); height: var(--jb-size-xl); }
+
+/* ===== 圆角 ===== */
+.jb-rounded-none { border-radius: var(--jb-radius-none); }
+.jb-rounded-sm { border-radius: var(--jb-radius-sm); }
+.jb-rounded { border-radius: var(--jb-radius-base); }
+.jb-rounded-md { border-radius: var(--jb-radius-md); }
+.jb-rounded-lg { border-radius: var(--jb-radius-lg); }
+.jb-rounded-xl { border-radius: var(--jb-radius-xl); }
+.jb-rounded-full { border-radius: var(--jb-radius-full); }
+
+/* ===== 阴影 ===== */
+.jb-shadow-none { box-shadow: none; }
+.jb-shadow-sm { box-shadow: var(--jb-shadow-sm); }
+.jb-shadow { box-shadow: var(--jb-shadow-base); }
+.jb-shadow-md { box-shadow: var(--jb-shadow-md); }
+.jb-shadow-lg { box-shadow: var(--jb-shadow-lg); }
+
+/* ===== 溢出 ===== */
+.jb-overflow-auto { overflow: auto; }
+.jb-overflow-hidden { overflow: hidden; }
+.jb-overflow-clip { overflow: clip; }
+.jb-overflow-visible { overflow: visible; }
+.jb-overflow-scroll { overflow: scroll; }
+.jb-overflow-x-auto { overflow-x: auto; }
+.jb-overflow-y-auto { overflow-y: auto; }
+
+/* ===== 定位 ===== */
+.jb-relative { position: relative; }
+.jb-absolute { position: absolute; }
+.jb-fixed { position: fixed; }
+.jb-sticky { position: sticky; }
+
+/* ===== 文本对齐 ===== */
+.jb-text-left { text-align: left; }
+.jb-text-center { text-align: center; }
+.jb-text-right { text-align: right; }
+
+/* ===== 字体粗细 ===== */
+.jb-font-normal { font-weight: var(--jb-font-weight-regular); }
+.jb-font-medium { font-weight: var(--jb-font-weight-medium); }
+.jb-font-semibold { font-weight: var(--jb-font-weight-semibold); }
+.jb-font-bold { font-weight: var(--jb-font-weight-bold); }
+
+/* ===== 文本溢出 ===== */
+.jb-truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.jb-text-wrap { white-space: normal; }
+.jb-text-nowrap { white-space: nowrap; }
+
+/* ===== 边框 ===== */
+.jb-border { border: 1px solid var(--jb-outline); }
+.jb-border-0 { border: none; }
+.jb-border-t { border-top: 1px solid var(--jb-outline); }
+.jb-border-b { border-bottom: 1px solid var(--jb-outline); }
+.jb-border-l { border-left: 1px solid var(--jb-outline); }
+.jb-border-r { border-right: 1px solid var(--jb-outline); }
+
+/* ===== 透明度 ===== */
+.jb-opacity-0 { opacity: 0; }
+.jb-opacity-50 { opacity: 0.5; }
+.jb-opacity-100 { opacity: 1; }
+
+/* ===== 指针事件 ===== */
+.jb-pointer-events-none { pointer-events: none; }
+.jb-pointer-events-auto { pointer-events: auto; }
+
+/* ===== 可见性 ===== */
+.jb-invisible { visibility: hidden; }
+.jb-visible { visibility: visible; }
+
+/* ===== 空白 ===== */
+.jb-whitespace-normal { white-space: normal; }
+.jb-whitespace-nowrap { white-space: nowrap; }
+.jb-whitespace-pre { white-space: pre; }
+.jb-whitespace-pre-line { white-space: pre-line; }
+.jb-whitespace-pre-wrap { white-space: pre-wrap; }
+
+/* ===== 单词 ===== */
+.jb-break-normal { overflow-wrap: normal; word-break: normal; }
+.jb-break-words { overflow-wrap: break-word; }
+.jb-break-all { word-break: break-all; }
+
+/* ===== 光标 ===== */
+.jb-cursor-pointer { cursor: pointer; }
+.jb-cursor-default { cursor: default; }
+.jb-cursor-not-allowed { cursor: not-allowed; }
+.jb-cursor-grab { cursor: grab; }
+.jb-cursor-grabbing { cursor: grabbing; }
+
+/* ===== 用户选择 ===== */
+.jb-select-none { user-select: none; }
+.jb-select-text { user-select: text; }
+.jb-select-all { user-select: all; }
+
+/* ===== 混合模式 ===== */
+.jb-blend-normal { mix-blend-mode: normal; }
+.jb-blend-multiply { mix-blend-mode: multiply; }
+.jb-blend-screen { mix-blend-mode: screen; }
+.jb-blend-overlay { mix-blend-mode: overlay; }
+.jb-blend-darken { mix-blend-mode: darken; }
+.jb-blend-lighten { mix-blend-mode: lighten; }
+.jb-blend-color-dodge { mix-blend-mode: color-dodge; }
+.jb-blend-color-burn { mix-blend-mode: color-burn; }
+.jb-blend-hard-light { mix-blend-mode: hard-light; }
+.jb-blend-soft-light { mix-blend-mode: soft-light; }
+.jb-blend-difference { mix-blend-mode: difference; }
+.jb-blend-exclusion { mix-blend-mode: exclusion; }
+
+/* ===== 滤镜 ===== */
+.jb-blur-0 { filter: blur(0); }
+.jb-blur-sm { filter: blur(4px); }
+.jb-blur { filter: blur(8px); }
+.jb-blur-lg { filter: blur(16px); }
+.jb-blur-xl { filter: blur(24px); }
+
+/* ===== 变换 ===== */
+.jb-transform-none { transform: none; }
+.jb-scale-95 { transform: scale(0.95); }
+.jb-scale-100 { transform: scale(1); }
+.jb-scale-105 { transform: scale(1.05); }
+.jb-scale-110 { transform: scale(1.1); }
+
+/* ===== 动画 ===== */
+.jb-transition-none { transition: none; }
+.jb-transition-all { transition: all var(--jb-transition-normal); }
+.jb-transition-colors { transition: color var(--jb-transition-normal), background-color var(--jb-transition-normal), border-color var(--jb-transition-normal); }
+.jb-transition-transform { transition: transform var(--jb-transition-normal); }
+.jb-transition-opacity { transition: opacity var(--jb-transition-normal); }

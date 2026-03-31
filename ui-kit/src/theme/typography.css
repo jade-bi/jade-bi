@@ -1,0 +1,77 @@
+/**
+ * 排版系统
+ * 只提供字体变量，不预设类名
+ * 字体大小基于黄金比例缩放
+ */
+
+:root {
+  /* ===== 字体族 ===== */
+  --jb-font-family-sans: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --jb-font-family-serif: Georgia, Cambria, 'Times New Roman', Times, serif;
+  --jb-font-family-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+
+  /* 默认字体族 */
+  --jb-font-family: var(--jb-font-family-sans);
+
+  /* ===== 字体粗细 ===== */
+  --jb-font-weight-regular: 400;
+  --jb-font-weight-medium: 500;
+  --jb-font-weight-semibold: 600;
+  --jb-font-weight-bold: 700;
+
+  /* ===== 基准字体大小 ===== */
+  --jb-font-size-base: 16px;
+  --jb-font-size-root: 100%;
+
+  /* ===== 字体大小变量（12 级）=====
+     基于黄金比例 φ = 1.618
+     计算：baseSize * φ^n where n 从 -5 到 6
+  */
+  --jb-font-size-caption2: 0.588rem;   /* φ^-5 ≈ 0.382 * 1.538 = 0.588 */
+  --jb-font-size-caption1: 0.764rem;   /* φ^-4 ≈ 0.618 * 1.236 = 0.764 */
+  --jb-font-size-overline: 0.764rem;   /* 同 caption1 */
+  --jb-font-size-body2: 0.958rem;      /* φ^-2 */
+  --jb-font-size-body1: 1rem;          /* φ^-1 ≈ 1rem */
+  --jb-font-size-subheadline: 1.236rem; /* φ^0 */
+  --jb-font-size-label: 1.528rem;      /* φ^1 */
+  --jb-font-size-title: 1.882rem;      /* φ^2 */
+  --jb-font-size-headline: 2.472rem;   /* φ^3 */
+  --jb-font-size-display3: 3.056rem;   /* φ^4 */
+  --jb-font-size-display2: 4.000rem;   /* φ^5 */
+  --jb-font-size-display1: 6.472rem;   /* φ^6 */
+
+  /* ===== 行高 ===== */
+  --jb-line-height-none: 1;
+  --jb-line-height-tight: 1.25;
+  --jb-line-height-snug: 1.375;
+  --jb-line-height-normal: 1.5;
+  --jb-line-height-relaxed: 1.625;
+  --jb-line-height-loose: 2;
+
+  /* ===== 字母间距 ===== */
+  --jb-letter-spacing-tighter: -0.05em;
+  --jb-letter-spacing-tight: -0.025em;
+  --jb-letter-spacing-normal: 0;
+  --jb-letter-spacing-wide: 0.025em;
+  --jb-letter-spacing-wider: 0.05em;
+  --jb-letter-spacing-widest: 0.1em;
+
+  /* ===== 段落间距 ===== */
+  --jb-paragraph-spacing: 1em;
+
+  /* ===== 常用排版组合 ===== */
+  /* 标题组合 */
+  --jb-display1: var(--jb-font-size-display1) / var(--jb-line-height-tight) var(--jb-font-family);
+  --jb-display2: var(--jb-font-size-display2) / var(--jb-line-height-tight) var(--jb-font-family);
+  --jb-display3: var(--jb-font-size-display3) / var(--jb-line-height-snug) var(--jb-font-family);
+
+  /* 正文组合 */
+  --jb-body-large: var(--jb-font-size-body1) / var(--jb-line-height-normal) var(--jb-font-family);
+  --jb-body-medium: var(--jb-font-size-body2) / var(--jb-line-height-normal) var(--jb-font-family);
+  --jb-body-small: var(--jb-font-size-caption1) / var(--jb-line-height-normal) var(--jb-font-family);
+
+  /* 标签组合 */
+  --jb-label-large: var(--jb-font-size-label) / var(--jb-line-height-tight) var(--jb-font-family);
+  --jb-label-medium: var(--jb-font-size-subheadline) / var(--jb-line-height-tight) var(--jb-font-family);
+  --jb-label-small: var(--jb-font-size-caption1) / var(--jb-line-height-tight) var(--jb-font-family);
+}

@@ -1,0 +1,179 @@
+/**
+ * JadeBi 语义化颜色系统 - Islands 主题风格
+ *
+ * Islands 主题特征：
+ * - 低饱和度的蓝灰色系（非鲜艳色彩）
+ * - 通过背景色差异定义层次（非边框）
+ * - 极简、柔和、现代的视觉体验
+ *
+ * ===== 核心变量和色组结构 =====
+ * 每个语义色组包含 4 个核心变量，构成完整的视觉层次：
+ *
+ * 1. --jb-{组名}              主色（用于主要交互元素）
+ * 2. --jb-on-{组名}           在主色上的文本/图标颜色（确保可读性）
+ * 3. --jb-{组名}-container    容器背景色（主色的浅色变体）
+ * 4. --jb-on-{组名}-container 在容器上的文本/图标颜色
+ *
+ * 这种结构确保了：
+ * - 可访问性：文本与背景的对比度符合 WCAG 标准
+ * - 一致性：所有组件使用相同的颜色令牌
+ * - 主题化：支持明暗主题无缝切换
+ *
+ * 使用示例：
+ * .primary-button {
+ *   background-color: var(--jb-primary);
+ *   color: var(--jb-on-primary);
+ * }
+ *
+ * .secondary-container {
+ *   background-color: var(--jb-secondary-container);
+ *   color: var(--jb-on-secondary-container);
+ *   border: 1px solid var(--jb-outline);
+ * }
+ */
+
+/* 亮色主题（默认）- Islands 风格 */
+:root {
+  /* ===== Primary（主要色组）- Islands 低饱和度蓝紫 =====
+   * 用途：品牌主色调，用于最重要的交互元素和强调内容
+   * 示例：主要按钮、激活的标签页、重要链接、品牌标识
+   * 设计原则：柔和蓝紫，不刺眼，保持视觉焦点 */
+  --jb-primary: #5C7CFA;
+  --jb-on-primary: #FFFFFF;
+  --jb-primary-container: #EEF2FF;
+  --jb-on-primary-container: #312E81;
+
+  /* ===== Secondary（次要色组）- Islands 中性灰 =====
+   * 用途：次要品牌色，用于辅助操作和次要元素
+   * 示例：次要按钮、非激活标签页、辅助文本、边框
+   * 设计原则：中性灰，不争夺视觉焦点 */
+  --jb-secondary: #6B7280;
+  --jb-on-secondary: #FFFFFF;
+  --jb-secondary-container: #F3F4F6;
+  --jb-on-secondary-container: #374151;
+
+  /* ===== Tertiary（第三色组）- Islands 柔和青灰 =====
+   * 用途：强调色，用于需要额外注意但不重要的元素
+   * 示例：标签、徽章、装饰性元素、进度条、图表
+   * 设计原则：与 primary/secondary 形成柔和对比 */
+  --jb-tertiary: #6366F1;
+  --jb-on-tertiary: #FFFFFF;
+  --jb-tertiary-container: #E0E7FF;
+  --jb-on-tertiary-container: #3730A3;
+
+  /* ===== Error（错误色组）- Islands 柔和红 =====
+   * 用途：错误状态、警告信息、危险操作、验证失败
+   * 示例：错误提示框、表单验证错误、删除按钮、警告图标
+   * 设计原则：柔和红色，不过于刺眼但足够醒目 */
+  --jb-error: #EF4444;
+  --jb-on-error: #FFFFFF;
+  --jb-error-container: #FEF2F2;
+  --jb-on-error-container: #991B1B;
+
+  /* ===== Surface（表面色组）- Islands 层次背景 =====
+   * 用途：卡片、面板、对话框、列表项等容器的背景
+   * 示例：卡片背景、模态框、抽屉、侧边栏、表格行
+   * 设计原则：通过背景色差异定义层次，而非边框 */
+  --jb-surface: #FFFFFF;
+  --jb-on-surface: #1F2937;
+  --jb-surface-variant: #F9FAFB;
+  --jb-on-surface-variant: #6B7280;
+
+  /* ===== Outline（轮廓色组）- Islands 极简边框 =====
+   * 用途：边框、分隔线、非交互元素的轮廓、禁用状态
+   * 示例：输入框边框、列表分隔线、禁用按钮边框、图标轮廓
+   * 设计原则：极淡边框，不干扰主要内容 */
+  --jb-outline: #E5E7EB;
+  --jb-outline-variant: #F3F4F6;
+
+  /* ===== Background（背景色组）- Islands 浅蓝灰背景 =====
+   * 用途：整个页面或应用的主背景色
+   * 示例：应用主背景、页面背景、画布背景
+   * 设计原则：极浅蓝灰，柔和不刺眼 */
+  --jb-background: #F5F7FA;
+  --jb-on-background: #1F2937;
+
+  /* ===== Inverse（反色色组） =====
+   * 用途：深色模式或高对比度场景下的颜色反转
+   * 示例：深色背景上的浅色文本、夜间模式组件、高对比度主题
+   * 设计原则：确保在深色背景上的可读性 */
+  --jb-inverse-surface: #1F2937;
+  --jb-inverse-on-surface: #F9FAFB;
+  --jb-inverse-primary: #5C7CFA;
+
+  /* ===== Scrim（遮罩色） =====
+   * 用途：模态框、抽屉、下拉菜单背后的半透明遮罩层
+   * 示例：模态框背景、侧边栏遮罩、下拉菜单遮罩
+   * 设计原则：纯黑色带透明度 */
+  --jb-scrim: #000000;
+}
+
+/* 暗色主题 - Islands 深蓝灰风格 */
+[data-theme='dark'] {
+  /* ===== Primary（主要色组）- Islands 柔和蓝 =====
+   * 用途：品牌主色调，用于最重要的交互元素和强调内容
+   * 示例：主要按钮、激活的标签页、重要链接、品牌标识
+   * 设计原则：柔和蓝，不刺眼，保持视觉焦点 */
+  --jb-primary: #6B8DD6;
+  --jb-on-primary: #1A1D21;
+  --jb-primary-container: #2D3748;
+  --jb-on-primary-container: #A3B8E0;
+
+  /* ===== Secondary（次要色组）- Islands 柔和灰 =====
+   * 用途：次要品牌色，用于辅助操作和次要元素
+   * 示例：次要按钮、非激活标签页、辅助文本、边框
+   * 设计原则：中性灰，不争夺视觉焦点 */
+  --jb-secondary: #9CA3AF;
+  --jb-on-secondary: #1A1D21;
+  --jb-secondary-container: #3C3F41;
+  --jb-on-secondary-container: #D1D5DB;
+
+  /* ===== Tertiary（第三色组）- Islands 柔和青 =====
+   * 用途：强调色，用于需要额外注意但不重要的元素
+   * 示例：标签、徽章、装饰性元素、进度条、图表
+   * 设计原则：与 primary/secondary 形成柔和对比 */
+  --jb-tertiary: #818CF8;
+  --jb-on-tertiary: #1A1D21;
+  --jb-tertiary-container: #312E81;
+  --jb-on-tertiary-container: #C7D2FE;
+
+  /* ===== Error（错误色组）- Islands 柔和红 =====
+   * 用途：错误状态、警告信息、危险操作、验证失败
+   * 示例：错误提示框、表单验证错误、删除按钮、警告图标
+   * 设计原则：柔和红色，足够醒目但不刺眼 */
+  --jb-error: #F87171;
+  --jb-on-error: #1A1D21;
+  --jb-error-container: #7F1D1D;
+  --jb-on-error-container: #FECACA;
+
+  /* ===== Surface（表面色组）- Islands 深蓝灰层次 =====
+   * 用途：卡片、面板、对话框、列表项等容器的背景
+   * 示例：卡片背景、模态框、抽屉、侧边栏、表格行
+   * 设计原则：通过背景色差异定义层次，而非边框 */
+  --jb-surface: #3C3F41;
+  --jb-on-surface: #E5E7EB;
+  --jb-surface-variant: #4B5563;
+  --jb-on-surface-variant: #9CA3AF;
+
+  /* ===== Outline（轮廓色组）- Islands 极淡边框 =====
+   * 用途：边框、分隔线、非交互元素的轮廓、禁用状态
+   * 示例：输入框边框、列表分隔线、禁用按钮边框、图标轮廓
+   * 设计原则：极淡边框，不干扰主要内容 */
+  --jb-outline: #4B5563;
+  --jb-outline-variant: #374151;
+
+  /* ===== Background（背景色组）- Islands 深蓝灰 =====
+   * 用途：整个页面或应用的主背景色
+   * 示例：应用主背景、页面背景、画布背景
+   * 设计原则：深蓝灰色，柔和不刺眼 */
+  --jb-background: #2D2F34;
+  --jb-on-background: #E5E7EB;
+
+  /* ===== Inverse（反色色组） =====
+   * 用途：深色模式或高对比度场景下的颜色反转
+   * 示例：深色背景上的浅色文本、夜间模式组件、高对比度主题
+   * 设计原则：确保在深色背景上的可读性，提供足够的对比度 */
+  --jb-inverse-surface: #F3F4F6;
+  --jb-inverse-on-surface: #1F2937;
+  --jb-inverse-primary: #5C7CFA;
+}

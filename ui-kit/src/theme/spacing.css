@@ -1,0 +1,57 @@
+/**
+ * 间距系统
+ * 只提供间距变量，不预设类名
+ * 基于黄金比例缩放
+ */
+
+:root {
+  /* ===== 基础间距（基于缩放因子）=====
+     使用 calc() 实现响应式缩放
+  */
+  --jb-spacing-0: 0;
+  --jb-spacing-px: 1px;
+  --jb-spacing-0_5: calc(var(--jb-size-xs) * 0.25);  /* 0.125em */
+  --jb-spacing-1: calc(var(--jb-size-xs) * 0.5);    /* 0.25em */
+  --jb-spacing-1_5: calc(var(--jb-size-xs) * 0.75);  /* 0.375em */
+  --jb-spacing-2: var(--jb-size-xs);                  /* 0.618em */
+  --jb-spacing-2_5: calc(var(--jb-size-sm) * 0.8);  /* 0.8em */
+  --jb-spacing-3: var(--jb-size-sm);                  /* 0.8em */
+  --jb-spacing-3_5: var(--jb-size-md);                /* 1em */
+  --jb-spacing-4: calc(var(--jb-size-md) * 1.272);  /* 1.272em */
+  --jb-spacing-5: calc(var(--jb-size-md) * 1.618);  /* 1.618em */
+  --jb-spacing-6: var(--jb-size-lg);                  /* 1.618em */
+  --jb-spacing-7: calc(var(--jb-size-lg) * 1.272);  /* 2.056em */
+  --jb-spacing-8: var(--jb-size-xl);                  /* 2.618em */
+  --jb-spacing-9: calc(var(--jb-size-xl) * 1.272);  /* 3.332em */
+  --jb-spacing-10: var(--jb-size-2xl);                /* 4.236em */
+  --jb-spacing-11: calc(var(--jb-size-2xl) * 1.272); /* 5.388em */
+  --jb-spacing-12: var(--jb-size-3xl);                /* 6.854em */
+  --jb-spacing-14: var(--jb-size-4xl);                /* 11.089em */
+  --jb-spacing-16: calc(var(--jb-size-4xl) * 1.272); /* 14.103em */
+  --jb-spacing-20: calc(var(--jb-size-4xl) * 1.618); /* 17.944em */
+
+  /* ===== 常用间距别名 ===== */
+  --jb-gap-xs: var(--jb-spacing-1);
+  --jb-gap-sm: var(--jb-spacing-2);
+  --jb-gap-md: var(--jb-spacing-3);
+  --jb-gap-lg: var(--jb-spacing-4);
+  --jb-gap-xl: var(--jb-spacing-6);
+  --jb-gap-2xl: var(--jb-spacing-8);
+  --jb-gap-3xl: var(--jb-spacing-10);
+
+  /* ===== 内边距别名 ===== */
+  --jb-padding-xs: var(--jb-spacing-1);
+  --jb-padding-sm: var(--jb-spacing-2);
+  --jb-padding-md: var(--jb-spacing-3);
+  --jb-padding-lg: var(--jb-spacing-4);
+  --jb-padding-xl: var(--jb-spacing-6);
+  --jb-padding-2xl: var(--jb-spacing-8);
+
+  /* ===== 外边距别名 ===== */
+  --jb-margin-xs: var(--jb-spacing-1);
+  --jb-margin-sm: var(--jb-spacing-2);
+  --jb-margin-md: var(--jb-spacing-3);
+  --jb-margin-lg: var(--jb-spacing-4);
+  --jb-margin-xl: var(--jb-spacing-6);
+  --jb-margin-2xl: var(--jb-spacing-8);
+}

@@ -1,0 +1,17 @@
+# IDE
+.idea/
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+.claude/*
+!.claude/settings.json
+
+# NPM
+dist/
+build/
+.svelte-kit/
+node_modules/
+pnpm-lock.yaml
+
+# 其他
+.DS_Store

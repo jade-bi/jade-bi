@@ -1,0 +1,60 @@
+/**
+ * 阴影系统 - Islands 弥散阴影风格
+ * 使用蓝灰色调替代纯黑，创造柔和悬浮感
+ */
+
+/* 亮色主题阴影 - Islands 蓝灰色调 */
+:root {
+  /* ===== 基础阴影 - 蓝灰色调，更弥散 ===== */
+  --jb-shadow-xs: 0 1px 2px rgba(99, 102, 241, 0.05);
+  --jb-shadow-sm: 0 1px 3px rgba(99, 102, 241, 0.08), 0 1px 2px rgba(99, 102, 241, 0.04);
+  --jb-shadow-base: 0 4px 6px rgba(99, 102, 241, 0.05), 0 2px 4px rgba(99, 102, 241, 0.03);
+  --jb-shadow-md: 0 10px 20px rgba(99, 102, 241, 0.08), 0 4px 8px rgba(99, 102, 241, 0.04);
+  --jb-shadow-lg: 0 20px 30px rgba(99, 102, 241, 0.1), 0 10px 15px rgba(99, 102, 241, 0.05);
+  --jb-shadow-xl: 0 25px 50px rgba(99, 102, 241, 0.12);
+  --jb-shadow-2xl: 0 35px 60px rgba(99, 102, 241, 0.15);
+
+  /* ===== 语义化阴影 - Islands 柔和悬浮感 ===== */
+  --jb-shadow-button: 0 2px 4px rgba(99, 102, 241, 0.06), 0 1px 2px rgba(99, 102, 241, 0.03);
+  --jb-shadow-card: 0 2px 8px rgba(99, 102, 241, 0.06), 0 1px 3px rgba(99, 102, 241, 0.03);
+  --jb-shadow-modal: 0 25px 50px rgba(99, 102, 241, 0.15), 0 10px 20px rgba(99, 102, 241, 0.08);
+  --jb-shadow-dropdown: 0 10px 25px rgba(99, 102, 241, 0.1), 0 4px 10px rgba(99, 102, 241, 0.05);
+  --jb-shadow-popover: 0 10px 25px rgba(99, 102, 241, 0.1), 0 4px 10px rgba(99, 102, 241, 0.05);
+  --jb-shadow-tooltip: 0 4px 12px rgba(99, 102, 241, 0.08), 0 2px 6px rgba(99, 102, 241, 0.04);
+
+  /* ===== 聚焦阴影 - Islands 柔和蓝紫 ===== */
+  --jb-shadow-focus: 0 0 0 3px rgba(92, 124, 250, 0.35);
+  --jb-shadow-focus-error: 0 0 0 3px rgba(248, 113, 113, 0.35);
+
+  /* ===== 交互状态阴影 ===== */
+  --jb-shadow-hover: var(--jb-shadow-md);
+  --jb-shadow-active: var(--jb-shadow-sm);
+}
+
+/* 暗色主题阴影 - Islands 蓝灰色调 */
+[data-theme='dark'] {
+  /* ===== 基础阴影 - 蓝灰色调，更适合暗色主题 ===== */
+  --jb-shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.3);
+  --jb-shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.35), 0 1px 2px rgba(0, 0, 0, 0.25);
+  --jb-shadow-base: 0 4px 6px rgba(0, 0, 0, 0.35), 0 2px 4px rgba(0, 0, 0, 0.25);
+  --jb-shadow-md: 0 10px 20px rgba(0, 0, 0, 0.4), 0 4px 8px rgba(0, 0, 0, 0.25);
+  --jb-shadow-lg: 0 20px 30px rgba(0, 0, 0, 0.45), 0 10px 15px rgba(0, 0, 0, 0.25);
+  --jb-shadow-xl: 0 25px 50px rgba(0, 0, 0, 0.5);
+  --jb-shadow-2xl: 0 35px 60px rgba(0, 0, 0, 0.55);
+
+  /* ===== 语义化阴影 - Islands 柔和悬浮感 ===== */
+  --jb-shadow-button: 0 2px 4px rgba(0, 0, 0, 0.25), 0 1px 2px rgba(0, 0, 0, 0.15);
+  --jb-shadow-card: 0 2px 8px rgba(0, 0, 0, 0.25), 0 1px 3px rgba(0, 0, 0, 0.15);
+  --jb-shadow-modal: 0 25px 50px rgba(0, 0, 0, 0.4), 0 10px 20px rgba(0, 0, 0, 0.25);
+  --jb-shadow-dropdown: 0 10px 25px rgba(0, 0, 0, 0.35), 0 4px 10px rgba(0, 0, 0, 0.2);
+  --jb-shadow-popover: 0 10px 25px rgba(0, 0, 0, 0.35), 0 4px 10px rgba(0, 0, 0, 0.2);
+  --jb-shadow-tooltip: 0 4px 12px rgba(0, 0, 0, 0.3), 0 2px 6px rgba(0, 0, 0, 0.15);
+
+  /* ===== 聚焦阴影 - Islands 柔和蓝 ===== */
+  --jb-shadow-focus: 0 0 0 3px rgba(107, 141, 214, 0.35);
+  --jb-shadow-focus-error: 0 0 0 3px rgba(248, 113, 113, 0.35);
+
+  /* ===== 交互状态阴影 ===== */
+  --jb-shadow-hover: var(--jb-shadow-md);
+  --jb-shadow-active: var(--jb-shadow-sm);
+}
