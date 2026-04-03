@@ -1,3 +1,4 @@
 //! 共享模块
 
-// pub mod config;
+pub mod commands;
+pub mod system;
