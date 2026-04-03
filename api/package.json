@@ -18,19 +18,21 @@
   "sideEffects": [
     "**/*.css"
   ],
-  "svelte": "./dist/index.js",
-  "types": "./dist/index.d.ts",
   "type": "module",
   "exports": {
     ".": {
-      "types": "./dist/index.d.ts"
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "svelte": "./src/lib/index.ts"
     },
     "./invoker": {
       "types": "./dist/invoker.svelte.d.ts",
-      "svelte": "./dist/invoker.svelte.ts"
+      "import": "./dist/invoker.svelte.js",
+      "svelte": "./src/lib/invoker.svelte.ts"
     }
   },
   "peerDependencies": {
+    "@tauri-apps/api": "^2.0.0",
     "svelte": "^5.0.0"
   },
   "devDependencies": {
@@ -38,6 +40,7 @@
     "@sveltejs/kit": "catalog:",
     "@sveltejs/package": "^2.5.7",
     "@sveltejs/vite-plugin-svelte": "catalog:",
+    "@tauri-apps/api": "^2.10.1",
     "publint": "^0.3.18",
     "svelte": "catalog:",
     "svelte-check": "catalog:",

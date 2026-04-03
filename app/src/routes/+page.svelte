@@ -1,156 +1,139 @@
 <script lang="ts">
-  import { invoke } from "@tauri-apps/api/core";
+  import {goto} from '$app/navigation';
+  import type {VaultMetadata} from '@jade-bi/api';
+  import CreateVaultCard from './components/CreateVaultCard.svelte';
+  import OpenVaultCard from './components/OpenVaultCard.svelte';
+  import S3VaultCard from './components/S3VaultCard.svelte';
+  import VaultList from './components/VaultList.svelte';
 
-  let name = $state("");
-  let greetMsg = $state("");
+  // 模拟的仓库列表数据（后续将从后端获取）
+  let recentVaults = $state<VaultMetadata[]>([
+    {
+      id: '1',
+      name: '我的笔记',
+      path: '/home/viktor/notes/my-notes',
+      type: 'local',
+      lastAccessedAt: new Date().toISOString(),
+      modifiedAt: new Date().toISOString(),
+      hasUnsavedChanges: false,
+    },
+  ]);
 
-  async function greet(event: Event) {
-    event.preventDefault();
-    // Learn more about Tauri commands at https://tauri.app/develop/calling-rust/
-    greetMsg = await invoke("greet", { name });
+  /**
+   * 处理新建仓库
+   */
+  function handleCreateVault() {
+    // TODO: 实现新建仓库逻辑
+    console.log('创建新仓库');
+  }
+
+  /**
+   * 处理打开仓库
+   */
+  function handleOpenVault() {
+    // TODO: 实现打开仓库逻辑（调用系统文件选择器）
+    console.log('打开仓库');
+  }
+
+  /**
+   * 处理 S3 实例化
+   */
+  function handleS3Vault() {
+    // TODO: 实现 S3 实例化逻辑（打开 S3 配置对话框）
+    console.log('S3 实例化');
+  }
+
+  /**
+   * 处理选择仓库
+   */
+  function handleSelectVault(vault: VaultMetadata) {
+    // TODO: 调用后端打开仓库
+    console.log('打开仓库:', vault.name);
+    // 跳转到仓库页
+    goto('/pages/vault');
   }
 </script>
 
-<main class="container">
-  <h1>Welcome to Tauri + Svelte</h1>
+<div class="welcome-page">
+  <aside class="sidebar">
+    <div class="sidebar-content">
+      <VaultList vaults={recentVaults} onselect={handleSelectVault} />
+    </div>
+  </aside>
 
-  <div class="row">
-    <a href="https://vite.dev" target="_blank">
-      <img src="/vite.svg" class="logo vite" alt="Vite Logo" />
-    </a>
-    <a href="https://tauri.app" target="_blank">
-      <img src="/tauri.svg" class="logo tauri" alt="Tauri Logo" />
-    </a>
-    <a href="https://svelte.dev" target="_blank">
-      <img src="/svelte.svg" class="logo svelte-kit" alt="SvelteKit Logo" />
-    </a>
-  </div>
-  <p>Click on the Tauri, Vite, and SvelteKit logos to learn more.</p>
+  <main class="main">
+    <div class="hero">
+      <h1 class="title">欢迎使用玉璧</h1>
+      <p class="subtitle">选择以下选项开始使用</p>
+    </div>
 
-  <form class="row" onsubmit={greet}>
-    <input id="greet-input" placeholder="Enter a name..." bind:value={name} />
-    <button type="submit">Greet</button>
-  </form>
-  <p>{greetMsg}</p>
-</main>
+    <div class="cards">
+      <CreateVaultCard onclick={handleCreateVault} />
+      <OpenVaultCard onclick={handleOpenVault} />
+      <S3VaultCard onclick={handleS3Vault} />
+    </div>
+  </main>
+</div>
 
 <style>
-.logo.vite:hover {
-  filter: drop-shadow(0 0 2em #747bff);
-}
-
-.logo.svelte-kit:hover {
-  filter: drop-shadow(0 0 2em #ff3e00);
-}
-
-:root {
-  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
-  font-size: 16px;
-  line-height: 24px;
-  font-weight: 400;
-
-  color: #0f0f0f;
-  background-color: #f6f6f6;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
-}
-
-.container {
-  margin: 0;
-  padding-top: 10vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  text-align: center;
-}
-
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: 0.75s;
-}
-
-.logo.tauri:hover {
-  filter: drop-shadow(0 0 2em #24c8db);
-}
-
-.row {
-  display: flex;
-  justify-content: center;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-
-a:hover {
-  color: #535bf2;
-}
-
-h1 {
-  text-align: center;
-}
-
-input,
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  color: #0f0f0f;
-  background-color: #ffffff;
-  transition: border-color 0.25s;
-  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
-}
-
-button {
-  cursor: pointer;
-}
-
-button:hover {
-  border-color: #396cd8;
-}
-button:active {
-  border-color: #396cd8;
-  background-color: #e8e8e8;
-}
-
-input,
-button {
-  outline: none;
-}
-
-#greet-input {
-  margin-right: 5px;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    color: #f6f6f6;
-    background-color: #2f2f2f;
+  .welcome-page {
+    display: flex;
+    height: 100%;
+    min-height: 0;
   }
 
-  a:hover {
-    color: #24c8db;
+  .sidebar {
+    width: 300px;
+    flex-shrink: 0;
+    border-right: 1px solid var(--color-border, #3a3a3a);
+    background: var(--color-bg-primary, #1a1a1a);
   }
 
-  input,
-  button {
-    color: #ffffff;
-    background-color: #0f0f0f98;
+  .sidebar-content {
+    padding: 24px;
+    height: 100%;
   }
-  button:active {
-    background-color: #0f0f0f69;
-  }
-}
 
+  .main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 48px;
+    gap: 32px;
+    min-height: 0;
+  }
+
+  .hero {
+    text-align: center;
+  }
+
+  .title {
+    font-size: 28px;
+    font-weight: 600;
+    color: var(--color-text-primary, #f0f0f0);
+    margin: 0 0 8px 0;
+  }
+
+  .subtitle {
+    font-size: 16px;
+    color: var(--color-text-secondary, #b0b0b0);
+    margin: 0;
+  }
+
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    width: 100%;
+    max-width: 900px;
+  }
+
+  @media (max-width: 900px) {
+    .cards {
+      grid-template-columns: 1fr;
+      max-width: 320px;
+    }
+  }
 </style>

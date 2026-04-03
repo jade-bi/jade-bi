@@ -16,6 +16,8 @@ html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
+  height: 100%;
+  overflow: hidden;
 }
 
 /* ===== 身体元素 ===== */
@@ -27,6 +29,7 @@ body {
   line-height: var(--jb-line-height-normal, 1.5);
   color: var(--jb-on-background, inherit);
   background-color: var(--jb-background, transparent);
+  height: 100%;
 }
 
 /* ===== 标题重置 ===== */
@@ -144,4 +147,87 @@ hr {
   border: none;
   border-top: 1px solid var(--jb-outline-variant, #ccc);
   margin: var(--jb-spacing-4, 1em) 0;
+}
+
+/* ===== 滚动条样式 ===== */
+/* 修复滚动条悬停后样式不恢复的问题 */
+:root {
+  --jb-scrollbar-width: 8px;
+  --jb-scrollbar-width-thin: 4px;
+  --jb-scrollbar-track: transparent;
+  --jb-scrollbar-thumb: #9ca3af;
+  --jb-scrollbar-thumb-hover: #6b7280;
+  --jb-scrollbar-thumb-active: #4b5563;
+}
+
+/* 暗色主题滚动条 */
+[data-theme='dark'] {
+  --jb-scrollbar-thumb: #4b5563;
+  --jb-scrollbar-thumb-hover: #4b5563;
+  --jb-scrollbar-thumb-active: #6b7280;
+}
+
+/* 统一的滚动条基础样式 - 解决样式不恢复的问题 */
+::-webkit-scrollbar {
+  width: var(--jb-scrollbar-width);
+  height: var(--jb-scrollbar-width);
+}
+
+/* 垂直滚动条轨道 */
+::-webkit-scrollbar-track {
+  background: var(--jb-scrollbar-track);
+  border-radius: var(--jb-radius-full, 9999px);
+}
+
+/* 垂直滚动条滑块 */
+::-webkit-scrollbar-thumb {
+  background: var(--jb-scrollbar-thumb);
+  border-radius: var(--jb-radius-full, 9999px);
+  border: 2px solid var(--jb-scrollbar-track);
+  background-clip: padding-box;
+  transform-origin: center;
+  transition: transform 0.15s ease;
+}
+
+/* 滚动条滑块悬停状态 - 只加宽滑块，不改变边距和背景 */
+::-webkit-scrollbar-thumb:hover {
+  transform: scaleX(1.125);
+  background: var(--jb-scrollbar-thumb);
+  border-color: var(--jb-scrollbar-track);
+  background-clip: padding-box;
+}
+
+/* 滚动条滑块激活/按下状态 */
+::-webkit-scrollbar-thumb:active {
+  transform: scaleX(1.25);
+  background: var(--jb-scrollbar-thumb-active);
+  border-color: var(--jb-scrollbar-track);
+  background-clip: padding-box;
+}
+
+/* Firefox 滚动条样式 */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--jb-scrollbar-thumb) var(--jb-scrollbar-track);
+}
+
+/* 确保滚动条在所有元素上正确显示 */
+html,
+body,
+div,
+main,
+article,
+section,
+ul,
+ol {
+  scrollbar-width: thin;
+  scrollbar-color: var(--jb-scrollbar-thumb) var(--jb-scrollbar-track);
+}
+
+/* 修复特定容器滚动条不显示的问题 */
+.overflow-auto,
+.overflow-scroll,
+.overflow-y-auto,
+.overflow-x-auto {
+  scrollbar-gutter: stable;
 }

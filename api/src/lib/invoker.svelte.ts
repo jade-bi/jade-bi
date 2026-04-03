@@ -205,7 +205,10 @@ export function invoker<NAME extends CommandNames>(commandName: NAME): Invoker<N
     try {
       // 调用 Tauri IPC 接口，传递命令名称和参数
       // invoke 函数是 Tauri 提供的核心 API，用于与 Rust 后端通信
-      const result = await invoke<ResultOf<NAME>>(commandName, args);
+      // 当 args 是 void 时，不传递参数
+      const result = args === undefined || args === null
+        ? await invoke<ResultOf<NAME>>(commandName)
+        : await invoke<ResultOf<NAME>>(commandName, args as Record<string, unknown>);
 
       // 调用成功：更新状态和数据
       // 状态转换到 'success'，存储结果数据

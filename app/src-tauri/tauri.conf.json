@@ -12,9 +12,16 @@
   "app": {
     "windows": [
       {
-        "title": "jadebi-app",
-        "width": 800,
-        "height": 600
+        "title": "JadeBi",
+        "label": "main",
+        "width": 1200,
+        "height": 800,
+        "minWidth": 800,
+        "minHeight": 600,
+        "decorations": false,
+        "transparent": false,
+        "resizable": true,
+        "center": true
       }
     ],
     "security": {
