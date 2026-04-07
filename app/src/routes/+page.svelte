@@ -1,5 +1,6 @@
 <script lang="ts">
   import {goto} from '$app/navigation';
+  import {WindowTitlebar} from '@jade-bi/ui-kit';
   import type {VaultMetadata} from '@jade-bi/api';
   import CreateVaultCard from './components/CreateVaultCard.svelte';
   import OpenVaultCard from './components/OpenVaultCard.svelte';
@@ -54,7 +55,10 @@
   }
 </script>
 
-<div class="welcome-page">
+<div class="welcome-container">
+  <WindowTitlebar title="玉璧" />
+
+  <div class="welcome-page">
   <aside class="sidebar">
     <div class="sidebar-content">
       <VaultList vaults={recentVaults} onselect={handleSelectVault} />
@@ -74,8 +78,15 @@
     </div>
   </main>
 </div>
+</div>
 
 <style>
+  .welcome-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow: hidden;
+  }
   .welcome-page {
     display: flex;
     height: 100%;
