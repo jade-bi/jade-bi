@@ -13,7 +13,7 @@
     "windows": [
       {
         "title": "JadeBi",
-        "label": "main",
+        "label": "welcome",
         "width": 1200,
         "height": 800,
         "minWidth": 800,
