@@ -1,5 +1,5 @@
 import {invoke} from '@tauri-apps/api/core';
-import type {ArgsOf, CommandNames, ResultOf} from './types';
+import type {ArgsOf, CommandNames, ResultOf} from './index.ts';
 
 /**
  * Tauri 命令调用器的状态枚举类型。
