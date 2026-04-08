@@ -1,5 +1,5 @@
 <script lang="ts">
-  import '../theme/index.css';
+  import '$lib/theme/index.css';
   let theme = $state('light');
 
   function toggleTheme() {
