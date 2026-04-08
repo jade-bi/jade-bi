@@ -2,10 +2,10 @@
   import {goto} from '$app/navigation';
   import {WindowTitlebar} from '@jade-bi/ui-kit';
   import type {VaultMetadata} from '@jade-bi/api';
-  import CreateVaultCard from './components/CreateVaultCard.svelte';
-  import OpenVaultCard from './components/OpenVaultCard.svelte';
-  import S3VaultCard from './components/S3VaultCard.svelte';
-  import VaultList from './components/VaultList.svelte';
+  import CreateVaultCard from '$lib/components/CreateVaultCard.svelte';
+  import OpenVaultCard from '$lib/components/OpenVaultCard.svelte';
+  import S3VaultCard from '$lib/components/S3VaultCard.svelte';
+  import VaultList from '$lib/components/VaultList.svelte';
 
   // 模拟的仓库列表数据（后续将从后端获取）
   let recentVaults = $state<VaultMetadata[]>([
@@ -51,7 +51,7 @@
     // TODO: 调用后端打开仓库
     console.log('打开仓库:', vault.name);
     // 跳转到仓库页
-    goto('/pages/vault');
+    goto('/vault');
   }
 </script>
 
