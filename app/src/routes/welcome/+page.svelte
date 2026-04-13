@@ -1,37 +1,52 @@
 <script lang="ts">
-  import {goto} from '$app/navigation';
-  import {WindowTitlebar} from '@jade-bi/ui-kit';
+  import {invoke} from '@tauri-apps/api/core';
+  import {WindowTitlebar, CreateVaultForm} from '@jade-bi/ui-kit';
   import type {VaultMetadata} from '@jade-bi/api';
   import CreateVaultCard from '$lib/components/CreateVaultCard.svelte';
   import OpenVaultCard from '$lib/components/OpenVaultCard.svelte';
   import S3VaultCard from '$lib/components/S3VaultCard.svelte';
   import VaultList from '$lib/components/VaultList.svelte';
 
-  // 模拟的仓库列表数据（后续将从后端获取）
-  let recentVaults = $state<VaultMetadata[]>([
-    {
-      id: '1',
-      name: '我的笔记',
-      path: '/home/viktor/notes/my-notes',
-      type: 'local',
-      lastAccessedAt: new Date().toISOString(),
-      modifiedAt: new Date().toISOString(),
-      hasUnsavedChanges: false,
-    },
-  ]);
+  // 视图状态
+  type ViewState = 'welcome' | 'create-vault';
+  let currentView = $state<ViewState>('welcome');
+
+  // 仓库列表
+  let recentVaults = $state<VaultMetadata[]>([]);
+  let loading = $state(false);
+  let error = $state('');
+
+  // 加载仓库列表
+  async function loadRecentVaults() {
+    loading = true;
+    error = '';
+    try {
+      const result = await invoke<VaultMetadata[]>('vault_registry_get_recent', {limit: 10});
+      recentVaults = result;
+    } catch (e) {
+      error = String(e);
+      console.error('加载仓库列表失败:', e);
+    } finally {
+      loading = false;
+    }
+  }
+
+  // 组件挂载时加载仓库列表
+  $effect(() => {
+    loadRecentVaults();
+  });
 
   /**
    * 处理新建仓库
    */
   function handleCreateVault() {
-    // TODO: 实现新建仓库逻辑
-    console.log('创建新仓库');
+    currentView = 'create-vault';
   }
 
   /**
    * 处理打开仓库
    */
-  function handleOpenVault() {
+  async function handleOpenVault() {
     // TODO: 实现打开仓库逻辑（调用系统文件选择器）
     console.log('打开仓库');
   }
@@ -47,37 +62,89 @@
   /**
    * 处理选择仓库
    */
-  function handleSelectVault(vault: VaultMetadata) {
-    // TODO: 调用后端打开仓库
-    console.log('打开仓库:', vault.name);
-    // 跳转到仓库页
-    goto('/vault');
+  async function handleSelectVault(vault: VaultMetadata) {
+    try {
+      // 更新访问时间
+      await invoke('vault_registry_update_access_time', {vaultId: vault.id});
+
+      // 获取完整仓库信息并在新窗口中打开
+      const vaultData = await invoke<any>('vault_manager_get_by_id', {vaultId: vault.id});
+      if (vaultData) {
+        await invoke('window_open_vault', {
+          vaultPath: vaultData.path,
+          vaultName: vaultData.name,
+        });
+      }
+    } catch (e) {
+      console.error('打开仓库失败:', e);
+    }
+  }
+
+  /**
+   * 处理创建仓库表单提交
+   */
+  async function handleCreateFormSubmit(data: {name: string; path: string}) {
+    try {
+      // 调用后端创建仓库
+      await invoke('vault_manager_create_local', {
+        name: data.name,
+        path: data.path,
+        description: null,
+      });
+
+      // 重新加载仓库列表
+      await loadRecentVaults();
+
+      // 返回欢迎页
+      currentView = 'welcome';
+    } catch (e) {
+      console.error('创建仓库失败:', e);
+      throw e; // 重新抛出以便表单显示错误
+    }
+  }
+
+  /**
+   * 处理创建表单取消
+   */
+  function handleCreateFormCancel() {
+    currentView = 'welcome';
   }
 </script>
 
 <div class="welcome-container">
   <WindowTitlebar title="玉璧" />
 
-  <div class="welcome-page">
-  <aside class="sidebar">
-    <div class="sidebar-content">
-      <VaultList vaults={recentVaults} onselect={handleSelectVault} />
-    </div>
-  </aside>
+  {#if currentView === 'welcome'}
+    <div class="welcome-page">
+      <aside class="sidebar">
+        <div class="sidebar-content">
+          <VaultList
+            vaults={recentVaults}
+            onselect={handleSelectVault}
+            {loading}
+          />
+        </div>
+      </aside>
 
-  <main class="main">
-    <div class="hero">
-      <h1 class="title">欢迎使用玉璧</h1>
-      <p class="subtitle">选择以下选项开始使用</p>
-    </div>
+      <main class="main">
+        <div class="hero">
+          <h1 class="title">欢迎使用玉璧</h1>
+          <p class="subtitle">选择以下选项开始使用</p>
+        </div>
 
-    <div class="cards">
-      <CreateVaultCard onclick={handleCreateVault} />
-      <OpenVaultCard onclick={handleOpenVault} />
-      <S3VaultCard onclick={handleS3Vault} />
+        <div class="cards">
+          <CreateVaultCard onclick={handleCreateVault} />
+          <OpenVaultCard onclick={handleOpenVault} />
+          <S3VaultCard onclick={handleS3Vault} />
+        </div>
+      </main>
     </div>
-  </main>
-</div>
+  {:else}
+    <CreateVaultForm
+      oncreate={handleCreateFormSubmit}
+      oncancel={handleCreateFormCancel}
+    />
+  {/if}
 </div>
 
 <style>

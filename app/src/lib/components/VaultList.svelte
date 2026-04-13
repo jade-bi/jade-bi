@@ -6,9 +6,11 @@
     vaults?: VaultMetadata[]
     /** 选中事件处理 */
     onselect?: (vault: VaultMetadata) => void
+    /** 是否加载中 */
+    loading?: boolean
   }
 
-  let {vaults = [], onselect}: Props = $props();
+  let {vaults = [], onselect, loading = false}: Props = $props();
 
   /**
    * 格式化日期
@@ -26,7 +28,12 @@
 <div class="vault-list">
   <h3 class="list-title">最近打开</h3>
 
-  {#if vaults.length === 0}
+  {#if loading}
+    <div class="loading-state">
+      <div class="spinner"></div>
+      <p>加载中...</p>
+    </div>
+  {:else if vaults.length === 0}
     <div class="empty-state">
       <p>暂无最近打开的仓库</p>
     </div>
@@ -79,13 +86,31 @@
     letter-spacing: 0.5px;
   }
 
-  .empty-state {
+  .empty-state,
+  .loading-state {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     flex: 1;
+    gap: 12px;
     color: var(--color-text-muted, #666);
     font-size: 14px;
+  }
+
+  .spinner {
+    width: 24px;
+    height: 24px;
+    border: 2px solid var(--color-border, #3a3a3a);
+    border-top-color: var(--color-primary, #6366f1);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+  }
+
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
   }
 
   .vaults {

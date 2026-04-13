@@ -39,7 +39,8 @@
   },
   "peerDependencies": {
     "svelte": "catalog:",
-    "@tauri-apps/api": "^2.0.0"
+    "@tauri-apps/api": "^2.0.0",
+    "@tauri-apps/plugin-dialog": "^2.0.0"
   },
   "devDependencies": {
     "@sveltejs/adapter-auto": "catalog:",
